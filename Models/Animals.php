@@ -2,8 +2,8 @@
     require_once __DIR__ . '/Product.php';
     
     class Animal extends Product{
-        private string $AnimalType;
-        private string $petIcon;
+        public string $AnimalType;
+        public string $petIcon;
 
         public function __construct($_name, $_price, $_image, $_weight,$_animal)
         {
@@ -27,7 +27,7 @@
                     return '<i class="fa-solid fa-fish"></i>';
                     break;  
                 default:
-                    return '<i class="fa-solid fa-exclamation"></i>';  
+                    return 'nessun animale';  
             }
         }
     }

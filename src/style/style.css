@@ -4,10 +4,32 @@
     padding: 0;
     box-sizing: border-box;
 }
+h1{
+    text-align: center;
+    font-size: 50px;
+    padding: 1.875rem;
+}
 
 .container{
-    width: 62.5rem;
+    max-width: 62.5rem;
     margin: 0 auto;
     display: flex;
-    
+}
+.card{
+    width: calc(100% / 3 - .625rem);
+    padding: 1.25rem;
+    border: 1px solid lightgray;
+    border-radius: .625rem;
+    margin: .625rem;
+}
+.title{
+    margin: 10px 0;
+}
+.animal{
+    text-transform: capitalize;
+    margin: .625rem 0;
+    font-size: small;
+}
+.price,.weight,.material,.description{
+    margin: 10px 0;
 }

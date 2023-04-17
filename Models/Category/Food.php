@@ -2,7 +2,7 @@
     require_once __DIR__ . '/../Animals.php';
 
     class Food extends Animal{
-        private array $ingredients;
+        public array $ingredients;
 
         public function __construct($_name, $_price, $_image, $_weight, $_animal, $_ingredient)
         {
