@@ -15,6 +15,7 @@ h1{
     margin: 0 auto;
     display: flex;
 }
+
 .card{
     width: calc(100% / 3 - .625rem);
     padding: 1.25rem;
@@ -32,4 +33,9 @@ h1{
 }
 .price,.weight,.material,.description{
     margin: 10px 0;
+}
+.error{
+    font-weight: bolder;
+    text-align: center;
+    padding: 30px;
 }
