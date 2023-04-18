@@ -3,7 +3,7 @@ require_once __DIR__ . '/Models/Category/Food.php';
 require_once __DIR__ . '/Models/Category/Toys.php';
 require_once __DIR__ . '/Models/Category/Accessories.php';
 
-$results = [];
+$products = [];
 try{
     $productFood = new Food('Royal Canin Mini ', 43.99, 'data:image/jpeg;base64,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', 545, 'dog', array('prosciutto', 'riso'));
     $productFood->set_shop_name('Shop 1');
@@ -13,7 +13,7 @@ try{
     $productAccessory->set_shop_name('Shop 2');
     $productAccessory->set_lat(30);
     $productAccessory->set_long(25.3);
-    $results = [$productFood, $productToy, $productAccessory];
+    $products = [$productFood, $productToy, $productAccessory];
 } catch (Exception $e){}
 
 
@@ -34,44 +34,53 @@ try{
 </head>
 
 <body>
-    <?php if(count($results) > 0): ?>
+    <!-- Condizione che verifica se é presente almeno un prodotto -->
+    <?php if(count($products) > 0): ?>
         <h1>BoolShop</h1>
         <div class="container">
-        <?php foreach ($results as $result) : ?>
+        <!-- Ciclo per tutti i prodotti nella lista -->
+        <?php foreach ($products as $product) : ?>
+            <!-- Card Prodotto -->
             <div class="card">
-                <h2 class="shop-name"><?php echo $result->get_shop_name() ?></h2>
-                <div class="distance">Distance: <?php echo $result->get_distance() ?> km</div>
-                <div><img src="<?php echo $result->get_image() ?>" alt="immagine"></div>
-                <h3 class="title"><?php echo $result->get_name() ?></h3>
-                <div class="animal"> <span><?php echo $result->get_pet_icon(); ?></span> <span><?php echo $result->get_animal_type(); ?></span></div>
-                <div class="price">Price: <?php echo $result->get_price() ?> $</div>
-                <div class="weight">Weight: <?php echo $result->get_weight() ?> gr</div>
-
-                <?php if (method_exists($result, 'get_material')) : ?>
-                    <div class="material">Material: <?php echo $result->get_material() ?></div>
+                <h2 class="shop-name"><?php echo $product->get_shop_name() ?></h2>
+                <div class="distance">Distance: <?php echo $product->get_distance() ?> km</div>
+                <div><img src="<?php echo $product->get_image() ?>" alt="immagine"></div>
+                <h3 class="title"><?php echo $product->get_name() ?></h3>
+                <div class="animal"> <span><?php echo $product->get_pet_icon(); ?></span> <span><?php echo $product->get_animal_type(); ?></span></div>
+                <div class="price">Price: <?php echo $product->get_price() ?> $</div>
+                <div class="weight">Weight: <?php echo $product->get_weight() ?> gr</div>
+                
+                <!-- Condizioni che verificano se il metodo all'interno della classe esiste -->
+                <?php if (method_exists($product, 'get_material')) : ?>
+                    <div class="material">Material: <?php echo $product->get_material() ?></div>
                 <?php endif ?>
 
-                <?php if (method_exists($result, 'get_description')) : ?>
-                    <div class="description">Description: <?php echo $result->get_description() ?></div>
+                <?php if (method_exists($product, 'get_description')) : ?>
+                    <div class="description">Description: <?php echo $product->get_description() ?></div>
                 <?php endif ?>
 
-                <?php if (method_exists($result, 'get_ingredients')) : ?>
+                <?php if (method_exists($product, 'get_ingredients')) : ?>
                     <div>Ingredients: </div>
                     <ul class="ingredient">
-                        <?php foreach ($result->get_ingredients() as $ingredient) : ?>
+                        <!-- Ciclo per la lista di ingredienti -->
+                        <?php foreach ($product->get_ingredients() as $ingredient) : ?>
                             <li><?php echo $ingredient ?></li>
                         <?php endforeach ?>
                     </ul>
                 <?php endif ?>
 
-                <?php if (method_exists($result, 'get_dimension')) : ?>
+                <?php if (method_exists($product, 'get_dimension')) : ?>
                     <span>Dimension:</span>
-                    <?php foreach ($result->get_dimension() as $dimension) : ?>
+                    <!-- Ciclo per lista delle dimensioni -->
+                    <?php foreach ($product->get_dimension() as $dimension) : ?>
                         <span><?php echo "{$dimension}cm" ?></span>
                     <?php endforeach ?>
                 <?php endif ?>
             </div>
+            <!-- /Card Prodotto -->
         <?php endforeach ?>
+        <!-- /Ciclo per tutti i prodotti nella lista -->
+    <!-- Condizione che si verifica nel caso in cui la lista dei prodotti é vuota ed ha generato un eccezione-->
     <?php else: ?>
         <div class="error"><?php echo 'Error: ' . $e->getMessage(); ?></div>
     <?php endif ?>
