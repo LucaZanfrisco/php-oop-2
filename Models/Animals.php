@@ -2,14 +2,18 @@
     require_once __DIR__ . '/Product.php';
     
     class Animal extends Product{
-        public string $AnimalType;
-        public string $petIcon;
+        private string $AnimalType;
+        private string $petIcon;
 
         public function __construct($_name, $_price, $_image, $_weight,$_animal)
         {
             parent::__construct($_name, $_price, $_image, $_weight);
             $this->AnimalType = $_animal;
             $this->petIcon = $this->set_pet_icon();
+        }
+
+        public function get_animal_type(){
+            return $this->AnimalType;
         }
 
         public function set_pet_icon(){
@@ -29,6 +33,10 @@
                 default:
                     return 'nessun animale';  
             }
+        }
+        
+        public function get_pet_icon(){
+            return $this->petIcon;
         }
     }
 ?>
