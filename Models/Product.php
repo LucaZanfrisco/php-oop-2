@@ -1,5 +1,9 @@
 <?php  
+    require_once __DIR__ . '/../Traits/Shop.php';
     class Product {
+
+        use Shop;
+
         private string $name;
         private $price;
         private string $image;
